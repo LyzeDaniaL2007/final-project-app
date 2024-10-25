@@ -1,95 +1,45 @@
+.navbar-container {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  padding: 1rem;
+}
+
 .navbar {
-    background-color: #00264d; // Solid dark blue color
-    color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .btn {
+    color: white; // Set button text color
+    font-size: 1.5rem;
+  }
+
+  .menu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-    .flex-1 {
-      display: flex;
-      align-items: center;
-  
-      .btn {
-        background: transparent;
-        color: white;
-        font-size: 1.25rem;
-        font-weight: 600;
+    gap: 1.5rem;
+
+    li {
+      list-style: none;
+
+      a {
+        color: white; // Set link color
         text-decoration: none;
-        padding: 0;
-  
-        .logo {
-          height: 40px; // Adjust the logo size
-          margin-right: 10px; // Space between logo and text
-        }
-  
+        transition: color 0.3s;
+
         &:hover {
-          color: #f0f0f0;
-        }
-      }
-    }
-  
-    .flex-none {
-      .menu-horizontal {
-        display: flex;
-        gap: 1rem;
-  
-        li {
-          a {
-            color: white;
-            padding: 0.5rem;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-  
-            &:hover {
-              background-color: #001f3f; // Darker blue on hover
-              border-radius: 0.375rem;
-            }
-          }
-  
-          details {
-            position: relative;
-  
-            summary {
-              cursor: pointer;
-              padding: 0.5rem;
-              color: white;
-  
-              &:hover {
-                background-color: #001f3f; // Darker blue on hover
-                border-radius: 0.375rem;
-              }
-            }
-  
-            ul {
-              position: absolute;
-              top: 100%;
-              left: 0;
-              background-color: #00264d; // Dark blue color
-              border-radius: 0.375rem;
-              padding: 0.5rem;
-              min-width: 150px;
-  
-              li {
-                a {
-                  padding: 0.5rem;
-                  display: block;
-                  color: white;
-                  &:hover {
-                    background-color: #001f3f; // Darker blue on hover
-                    border-radius: 0.375rem;
-                  }
-                }
-              }
-            }
-          }
+          color: #f39c12; // Change color on hover
         }
       }
     }
   }
-  
+
+  .search-icon {
+    cursor: pointer;
+    color: white; // Set icon color
+    margin-left: auto; // Push the icon to the right
+    transition: color 0.3s;
+
+    &:hover {
+      color: #f39c12; // Change color on hover
+    }
+  }
+}
