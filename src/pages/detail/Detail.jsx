@@ -19,6 +19,19 @@ const Detail = () => {
     }
   };
 
+  const postRating = async (rating) => {
+    const url = `https://api.themoviedb.org/3/movie/${id}/rating`;
+    const body = {
+      value: rating,
+    };
+    try {
+      const res = await axios.post(url, body, header);
+      console.log(res.data);
+    } catch (error) {
+      console.log("Error submitting rating:", error.message);
+    }
+  };
+
   useEffect(() => {
     if (!id) {
       return;
