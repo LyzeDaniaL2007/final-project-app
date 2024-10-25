@@ -1,5 +1,6 @@
 import { Search } from "lucide-react"; // Importing the Search icon from Lucide
 import "./Navbar.scss"; // SCSS for styling Navbar
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,16 +11,19 @@ const Navbar = () => {
         </a>
         <ul className="menu menu-horizontal">
           <li>
-            <a href="#">Movies</a>
+            <Link to="/home">Movies</Link>
           </li>
           <li>
-            <a href="#">TV</a>
+            <Link to="#">TV</Link>
           </li>
           <li>
-            <a href="#">Genres</a>
+            <Link to="#">Genres</Link>
           </li>
           <li>
-            <a href="#">Favorites</a>
+            <Link to="/favorites">Favorites</Link>
+          </li>
+          <li>
+            <Link to="/rated">Rated</Link>
           </li>
         </ul>
         <div

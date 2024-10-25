@@ -1,44 +1,15 @@
 import React, { useState } from "react";
 import "./Detail.scss"; // Import the SCSS styling
 
-const DetailMovie = ({ movie, onRatingUpdate }) => {
-  const [rating, setRating] = useState(0); // State to store user input rating
-  const API_KEY = "00cb3a170a054e278fecc6aecd6c6885";
-
-  const submitRating = async () => {
-    try {
-      const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${movie.id}/rating?api_key=${API_KEY}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-            Authorization: `Bearer YOUR_ACCESS_TOKEN`, // Use appropriate authorization
-          },
-          body: JSON.stringify({ value: rating }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to submit rating");
-      }
-
-      const data = await response.json();
-
-      // Call the rating update function passed from HomeView
-      onRatingUpdate(movie.id, rating);
-      alert("Rating submitted successfully!");
-    } catch (error) {
-      console.error("Error submitting rating:", error);
-      alert("There was an error submitting your rating. Please try again.");
-    }
-  };
-
-  const handleStarClick = (value) => {
-    setRating(value);
-    console.log(value);
-  };
-
+const DetailMovie = ({
+  movie,
+  onRatingUpdate,
+  handleStarClick,
+  rating,
+  postFavorite,
+  deleteFavorite,
+  isFavorite,
+}) => {
   return (
     <div className="detail-container">
       <div className="detail-header">
@@ -78,9 +49,15 @@ const DetailMovie = ({ movie, onRatingUpdate }) => {
                 </span>
               ))}
             </div>
-            <button onClick={submitRating} className="submit-rating-button">
-              Submit Rating
-            </button>
+            {isFavorite ? (
+              <button onClick={deleteFavorite} className="submit-rating-button">
+                Delete from favorite
+              </button>
+            ) : (
+              <button onClick={postFavorite} className="submit-rating-button">
+                Add to favorite
+              </button>
+            )}
           </div>
         </div>
       </div>
