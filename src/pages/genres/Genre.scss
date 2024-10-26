@@ -1,0 +1,57 @@
+// Genre.scss
+.genre-container {
+    padding: 20px;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    border-radius: 10px;
+    min-height: 100vh;
+  }
+  
+  .genre-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Spacing between items */
+  }
+  
+  .genre-item {
+    background-color: #f39c12; /* Pinkish color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .genre-item:hover {
+    transform: scale(1.05);
+    background-color: #e91e63; /* Darker pink */
+  }
+  
+  .movies-section {
+    margin-top: 20px;
+  }
+  
+  .movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .movie-card {
+    width: 150px;
+    text-align: center;
+  }
+  
+  .movie-poster {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .movie-title {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  

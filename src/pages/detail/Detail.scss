@@ -1,98 +1,109 @@
 .detail-container {
-    padding: 2rem;
-    background-color: #121212;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    .detail-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      max-width: 1200px;
-      width: 100%;
-      border-radius: 10px;
-      background-color: #1e1e1e;
-      padding: 2rem;
-  
-      @media (min-width: 768px) {
-        flex-direction: row;
-      }
-  
-      .movie-poster {
-        width: 300px;
-        border-radius: 10px;
-      }
-  
-      .movie-info {
-        flex: 1;
-        padding: 1rem;
-  
-        .movie-title {
-          font-size: 2.5rem;
-          color: #ff4081;
-        }
-  
-        .movie-tagline {
-          font-style: italic;
-          margin-bottom: 1rem;
-          color: #ccc;
-        }
-  
-        .movie-overview {
-          margin-bottom: 1.5rem;
-          line-height: 1.6;
-        }
-  
-        .movie-details p {
-          margin: 0.5rem 0;
-          strong {
-            color: #ff4081;
-          }
-        }
-  
-        .rating-section {
-          margin-top: 2rem;
-  
-          h3 {
-            color: #ff4081;
-          }
-  
-          .star-rating {
-            display: flex;
-            gap: 5px;
-            cursor: pointer;
-  
-            .star {
-              font-size: 2rem;
-              color: #ccc; // Default star color
-  
-              &.filled {
-                color: #ff4081; // Filled star color
-              }
-  
-              &:hover {
-                color: #ff4081; // Hover star color
-              }
-            }
-          }
-  
-          .submit-rating-button {
-            background-color: #ff4081;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-  
-            &:hover {
-              background-color: #e0356f;
-            }
-          }
-        }
-      }
-    }
-  }
-  
+  padding: 20px;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  min-height: 100vh;
+  color: white;
+  border-radius: 10px;
+}
+
+.detail-header {
+  display: flex;
+  gap: 20px;
+}
+
+.movie-poster {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+}
+
+.movie-info {
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 2rem;
+  margin: 0;
+  color: #ff4081; // Pinkish color
+}
+
+.movie-tagline {
+  font-style: italic;
+  color: #b0bec5;
+}
+
+.movie-overview {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.rating-section {
+  margin-top: 20px;
+}
+
+.star {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.star:hover,
+.star.filled {
+  color: gold;
+}
+
+.submit-rating-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ff4081; // Pinkish color
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-rating-button:hover {
+  background-color: #e91e63; // Darker pink
+}
+
+.trailer-section {
+  margin-top: 30px;
+}
+
+.cast-section {
+  margin-top: 30px;
+}
+
+.cast-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.cast-item {
+  text-align: center;
+  width: 120px;
+  transition: transform 0.3s;
+}
+
+.cast-item:hover {
+  transform: scale(1.05);
+}
+
+.cast-photo {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.actor-character {
+  font-size: 0.9rem;
+  color: #b0bec5; // Lighter color for character name
+}

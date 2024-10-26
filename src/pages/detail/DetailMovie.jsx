@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Detail.scss"; // Import the SCSS styling
 
 const DetailMovie = ({
@@ -10,6 +10,40 @@ const DetailMovie = ({
   deleteFavorite,
   isFavorite,
 }) => {
+  const [trailer, setTrailer] = useState(null);
+  const [cast, setCast] = useState([]);
+
+  // Fetch trailer and cast data from TMDB
+  useEffect(() => {
+    const fetchAdditionalData = async () => {
+      try {
+        const apiKey = "00cb3a170a054e278fecc6aecd6c6885";
+        const movieId = movie.id;
+
+        // Fetch Trailer
+        const trailerRes = await fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${apiKey}&language=en-US`
+        );
+        const trailerData = await trailerRes.json();
+        const officialTrailer = trailerData.results.find(
+          (vid) => vid.type === "Trailer" && vid.site === "YouTube"
+        );
+        setTrailer(officialTrailer);
+
+        // Fetch Cast
+        const castRes = await fetch(
+          `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${apiKey}`
+        );
+        const castData = await castRes.json();
+        setCast(castData.cast.slice(0, 10)); // Show top 10 cast members
+      } catch (error) {
+        console.error("Failed to fetch additional data", error);
+      }
+    };
+
+    fetchAdditionalData();
+  }, [movie.id]);
+
   return (
     <div className="detail-container">
       <div className="detail-header">
@@ -58,6 +92,40 @@ const DetailMovie = ({
                 Add to favorite
               </button>
             )}
+          </div>
+
+          {/* Play Trailer Section */}
+          {trailer && (
+            <div className="trailer-section">
+              <h3>Watch Trailer</h3>
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${trailer.key}`}
+                title={trailer.name}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
+
+          {/* Cast Section */}
+          <div className="cast-section">
+            <h3>Top Cast</h3>
+            <ul className="cast-list">
+              {cast.map((actor) => (
+                <li key={actor.id} className="cast-item">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}
+                    alt={actor.name}
+                    className="cast-photo"
+                  />
+                  <p>{actor.name}</p>
+                  <p className="actor-character">{actor.character}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

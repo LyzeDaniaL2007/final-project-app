@@ -1,0 +1,54 @@
+.favorites-container {
+    padding: 20px;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    text-align: center;
+  
+    h1 {
+      margin-bottom: 20px;
+      color: white;
+    }
+  }
+
+  .no-favorites {
+    font-size: 1.5rem;
+    margin-top: 50px;
+  }
+  
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .favorite-card {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .favorite-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .favorite-info {
+    padding: 10px;
+    color: white;
+  
+    .favorite-title {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+  
+    .favorite-date,
+    .favorite-rating {
+      font-size: 0.9rem;
+    }
+  }
+  

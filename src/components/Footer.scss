@@ -1,0 +1,71 @@
+/* footer.scss */
+
+/* Footer Container */
+.footer {
+    background: linear-gradient(135deg, #141e30, #243b55); /* Background Gradasi */
+    color: #ffffff; /* Teks Putih */
+    padding: 2.5rem;
+  
+    nav {
+      margin-bottom: 1.5rem;
+  
+      .footer-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #ffffff; /* Teks Judul Putih */
+      }
+  
+      .link {
+        display: block;
+        margin: 0.5rem 0;
+        text-decoration: none;
+        color: #ffffff; /* Teks Link Putih */
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #f39c12; /* Warna Pinkish saat Hover */
+        }
+      }
+    }
+  }
+  
+  /* Social Icons */
+  .grid {
+    display: flex;
+    gap: 1rem;
+  
+    a {
+      display: inline-block;
+      transition: transform 0.3s ease, fill 0.3s ease;
+  
+      svg {
+        fill: #ffffff; /* Warna Ikon Putih */
+        width: 24px;
+        height: 24px;
+      }
+  
+      &:hover {
+        transform: scale(1.1); /* Efek Zoom saat Hover */
+        svg {
+          fill: #f39c12; /* Warna Ikon Pinkish saat Hover */
+        }
+      }
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer {
+      text-align: center;
+  
+      nav {
+        margin-bottom: 2rem;
+      }
+  
+      .grid {
+        justify-content: center;
+      }
+    }
+  }
+  
