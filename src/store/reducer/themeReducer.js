@@ -1,4 +1,4 @@
-import { TOGGLE_THEME } from "../action/ThemeAction";
+import { TOGGLE_THEME } from "../action/themeAction";
 
 const nilaiDefault = {
   theme: "Light",
@@ -11,8 +11,8 @@ const themeReducer = (state = nilaiDefault, action) => {
         ...state,
         theme: state.theme === "light" ? "dark" : "light",
       };
-    default:
-      return state;
+      default:
+        return state;
   }
 };
 
