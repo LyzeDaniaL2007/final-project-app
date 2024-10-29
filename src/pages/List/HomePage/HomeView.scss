@@ -1,94 +1,115 @@
-.home-container {
-  padding: 20px;
-  background: linear-gradient(135deg, #141e30, #243b55);
-  color: white;
+/* General Section Header Styles */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+
+  h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+  }
+
+  .toggle-buttons {
+    display: flex;
+    gap: 10px;
+
+    .toggle-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background-color: transparent;
+      color: var(--text-color);
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+
+      &:hover {
+        background-color: #ffd700; /* Yellow on hover */
+        color: black; /* Black text on hover */
+      }
+
+      &.active {
+        background-color: #ffd700; /* Active state with yellow */
+        color: black;
+        border-color: #ffd700;
+      }
+    }
+  }
 }
 
+/* Hero Section Styles */
 .hero-section {
   height: 400px;
   background-size: cover;
   background-position: center;
   position: relative;
-
-  .hero-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-content {
-    text-align: center;
-
-    .hero-heading {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-
-      .dot {
-        color: #e50914;
-      }
-    }
-
-    .hero-subtext {
-      font-size: 1.2rem;
-      color: #b3b3b3;
-    }
-  }
 }
 
-.section-header {
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 40px 0;
+  justify-content: center;
+}
 
-  .toggle-buttons {
-    display: flex;
+.hero-content {
+  text-align: center;
 
-    .toggle-button {
-      background: transparent;
-      border: 1px solid white;
-      padding: 8px 12px;
-      margin-left: 10px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
+  .hero-heading {
+    font-size: 3rem;
+    color: #ffd700; /* Yellow for Fun Movie text */
+  }
 
-      &:hover {
-        background: #f39c12;
-        transform: scale(1.05);
-      }
+  .dot {
+    color: white;
+  }
 
-      &.active {
-        background: white;
-        color: black;
-      }
-    }
+  .hero-subtext {
+    font-size: 1.2rem;
+    color: var(--text-color);
   }
 }
 
+/* Slider Fade Animation */
 .slider-container {
-  transition: opacity 0.5s ease-in-out;
+  margin-top: 20px;
 
   &.fade-out {
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
   }
 
   &.fade-in {
     opacity: 1;
+    transition: opacity 0.5s ease-in-out;
   }
 }
 
+/* Movie Card Styles */
 .movie-card {
-  padding: 10px;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  position: relative;
 
   img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 10px;
+  }
+
+  .movie-info {
+    margin-top: 10px;
+    color: var(--text-color);
+    text-align: center;
+
+    h3 {
+      margin: 5px 0;
+    }
+
+    .rating-badge {
+      background-color: #ffd700;
+      border-radius: 5px;
+      padding: 5px;
+      font-weight: bold;
+    }
   }
 }

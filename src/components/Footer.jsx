@@ -3,7 +3,7 @@ import "./Footer.scss"
 
 const Footer = () => {
   return (
-    <footer className="footer bg-base-300 text-base-content p-10">
+    <footer className="footer text-base-content p-10 bg-white dark:bg-black dark:text-white">
     <nav>
       <h6 className="footer-title">Services</h6>
       <a className="link link-hover">Branding</a>

@@ -45,7 +45,7 @@ const DetailMovie = ({
   }, [movie.id]);
 
   return (
-    <div className="detail-container">
+    <div className="detail-container p-6 bg-white dark:bg-black dark:text-white">
       <div className="detail-header">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

@@ -1,54 +1,84 @@
+/* Theme Variables */
+:root {
+  --primary-yellow: #ffd700;
+  --light-bg: white;
+  --dark-bg: black;
+  --light-text: black;
+  --dark-text: white;
+}
+
+/* Container Styles */
 .favorites-container {
-    padding: 20px;
-    background: linear-gradient(135deg, #141e30, #243b55);
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s, color 0.3s;
+
+  &.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+  }
+
+  h1 {
     text-align: center;
-  
-    h1 {
-      margin-bottom: 20px;
-      color: white;
-    }
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: var(--primary-yellow);
   }
 
   .no-favorites {
+    text-align: center;
     font-size: 1.5rem;
     margin-top: 50px;
+    color: gray;
   }
-  
+
   .favorites-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
+    padding: 20px;
   }
-  
+
   .favorite-card {
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s;
-  
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
     &:hover {
       transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    a {
+      display: block;
+    }
+
+    .favorite-poster {
+      width: 100%;
+      display: block;
+      border-bottom: 2px solid var(--primary-yellow);
+    }
+
+    .favorite-info {
+      padding: 10px;
+
+      .favorite-title {
+        font-size: 1.2rem;
+        color: var(--primary-yellow);
+        margin: 5px 0;
+      }
+
+      .favorite-date {
+        font-size: 0.9rem;
+        color: gray;
+        margin-bottom: 5px;
+      }
+
+      .favorite-rating {
+        font-weight: bold;
+      }
     }
   }
-  
-  .favorite-poster {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .favorite-info {
-    padding: 10px;
-    color: white;
-  
-    .favorite-title {
-      font-size: 1.2rem;
-      margin: 10px 0;
-    }
-  
-    .favorite-date,
-    .favorite-rating {
-      font-size: 0.9rem;
-    }
-  }
-  
+}

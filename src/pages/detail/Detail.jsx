@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DetailMovie from "./DetailMovie";
 import { useParams } from "react-router-dom";
+import { data } from "autoprefixer";
 
 const Detail = () => {
   const { id } = useParams();
@@ -159,6 +160,8 @@ const Detail = () => {
     }
     fetchMovieDetails(id);
   }, [id]);
+
+  console.log(data)
 
   return (
     <div>

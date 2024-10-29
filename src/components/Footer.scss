@@ -1,71 +1,73 @@
-/* footer.scss */
+/* Theme Variables */
+:root {
+  --primary-yellow: #ffd700;
+  --light-bg: white;
+  --dark-bg: black;
+  --light-text: black;
+  --dark-text: white;
+  --link-color: gray;
+  --link-hover-color: var(--primary-yellow);
+}
 
-/* Footer Container */
+/* Footer Styles */
 .footer {
-    background: linear-gradient(135deg, #141e30, #243b55); /* Background Gradasi */
-    color: #ffffff; /* Teks Putih */
-    padding: 2.5rem;
-  
-    nav {
-      margin-bottom: 1.5rem;
-  
-      .footer-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        color: #ffffff; /* Teks Judul Putih */
-      }
-  
-      .link {
-        display: block;
-        margin: 0.5rem 0;
-        text-decoration: none;
-        color: #ffffff; /* Teks Link Putih */
-        transition: color 0.3s ease;
-  
-        &:hover {
-          color: #f39c12; /* Warna Pinkish saat Hover */
-        }
-      }
-    }
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  padding: 2.5rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+
+  &.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
   }
-  
-  /* Social Icons */
-  .grid {
-    display: flex;
-    gap: 1rem;
-  
-    a {
-      display: inline-block;
-      transition: transform 0.3s ease, fill 0.3s ease;
-  
-      svg {
-        fill: #ffffff; /* Warna Ikon Putih */
-        width: 24px;
-        height: 24px;
-      }
-  
+
+  .footer-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: var(--primary-yellow);
+  }
+
+  nav {
+    margin: 1rem 0;
+
+    .link {
+      display: block;
+      color: var(--link-color);
+      margin: 0.5rem 0;
+      transition: color 0.3s;
+
       &:hover {
-        transform: scale(1.1); /* Efek Zoom saat Hover */
-        svg {
-          fill: #f39c12; /* Warna Ikon Pinkish saat Hover */
+        color: var(--link-hover-color);
+      }
+    }
+
+    .grid {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      a {
+        display: inline-block;
+        color: var(--link-color);
+        transition: color 0.3s;
+
+        &:hover {
+          color: var(--link-hover-color);
         }
       }
     }
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .footer {
-      text-align: center;
-  
-      nav {
-        margin-bottom: 2rem;
-      }
-  
-      .grid {
-        justify-content: center;
-      }
-    }
+}
+
+/* Social Icon Styles */
+svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--link-color);
+  transition: fill 0.3s;
+
+  &:hover {
+    fill: var(--link-hover-color);
   }
-  
+}

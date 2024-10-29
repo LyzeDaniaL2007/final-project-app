@@ -8,7 +8,7 @@ import "./HomeView.scss";
 const HomeView = ({
   trendingMovies,
   upcomingMovies,
-  trendingTV,
+  nowPlayingMovies,
   isDaily,
   toggleTrendingType,
 }) => {
@@ -57,7 +57,7 @@ const HomeView = ({
   };
 
   return (
-    <div className="home-container">
+    <div className="p-6 bg-white dark:bg-black dark:text-white">
       <div
         className="hero-section"
         style={{
@@ -75,7 +75,9 @@ const HomeView = ({
       </div>
 
       <div className="section-header">
-        <h3><b>Trending Movies</b></h3>
+        <h3>
+          <b>Trending Movies</b>
+        </h3>
         <div className="toggle-buttons">
           <button
             className={`toggle-button ${isDaily ? "active" : ""}`}
@@ -92,17 +94,21 @@ const HomeView = ({
         </div>
       </div>
 
-      <div className={`slider-container ${isAnimating ? "fade-out" : "fade-in"}`}>
+      <div
+        className={`slider-container ${isAnimating ? "fade-out" : "fade-in"}`}
+      >
         <Slider {...sliderSettings}>
           {trendingMovies.map((movie) => (
-            <Link to={`/detail/${movie.id}`} key={movie.id}> {/* Link to detail page */}
-              <div className="movie-card">
+            <Link to={`/detail/${movie.id}`} key={movie.id}>
+              {" "}
+              {/* Link to detail page */}
+              <div className="movie-card px-3">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
                 />
                 <div className="movie-info">
-                  <h3>{movie.title}</h3>
+                  <h3 className="line-clamp-1" >{movie.title}</h3>
                   <p>{new Date(movie.release_date).toLocaleDateString()}</p>
                   <div className="rating-badge">
                     <span>{Math.round(movie.vote_average * 10)}%</span>
@@ -115,13 +121,17 @@ const HomeView = ({
       </div>
 
       <div className="section-header">
-        <h3><b>Upcoming Movies</b></h3>
+        <h3>
+          <b>Upcoming Movies</b>
+        </h3>
       </div>
       <div className="slider-container">
         <Slider {...sliderSettings}>
           {upcomingMovies.map((movie) => (
-            <Link to={`/detail/${movie.id}`} key={movie.id}> {/* Link to detail page */}
-              <div className="movie-card">
+            <Link to={`/detail/${movie.id}`} key={movie.id}>
+              {" "}
+              {/* Link to detail page */}
+              <div className="movie-card px-3">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
@@ -137,19 +147,52 @@ const HomeView = ({
       </div>
 
       <div className="section-header">
-        <h3><b>Top Rated Movies</b></h3>
+        <h3>
+          <b>Top Rated Movies</b>
+        </h3>
       </div>
       <div className="slider-container">
         <Slider {...sliderSettings}>
           {topRatedMovies.map((movie) => (
-            <Link to={`/detail/${movie.id}`} key={movie.id}> {/* Link to detail page */}
-              <div className="movie-card">
+            <Link to={`/detail/${movie.id}`} key={movie.id}>
+              {" "}
+              {/* Link to detail page */}
+              <div className="movie-card px-3">
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
                 />
                 <div className="movie-info">
-                  <h3>{movie.title}</h3>
+                  <h3 className="line-clamp-1">{movie.title}</h3>
+                  <p>{new Date(movie.release_date).toLocaleDateString()}</p>
+                  <div className="rating-badge">
+                    <span>{Math.round(movie.vote_average * 10)}%</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </Slider>
+      </div>
+
+      <div className="section-header">
+        <h3>
+          <b>Now Playing Movies</b>
+        </h3>
+      </div>
+      <div className="slider-container">
+        <Slider {...sliderSettings}>
+          {nowPlayingMovies.map((movie) => (
+            <Link to={`/detail/${movie.id}`} key={movie.id}>
+              {" "}
+              {/* Link to detail page */}
+              <div className="movie-card px-3">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+                <div className="movie-info">
+                  <h3 className="line-clamp-1">{movie.title}</h3>
                   <p>{new Date(movie.release_date).toLocaleDateString()}</p>
                   <div className="rating-badge">
                     <span>{Math.round(movie.vote_average * 10)}%</span>
@@ -164,4 +207,4 @@ const HomeView = ({
   );
 };
 
-export default HomeView;
+export default HomeView; 

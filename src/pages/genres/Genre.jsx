@@ -1,6 +1,7 @@
 // Genre.jsx
 import React, { useEffect, useState } from "react";
 import GenreView from "./GenreView"; // Import GenreView untuk tampilan
+import { data } from "autoprefixer";
 
 const Genre = () => {
   const [genres, setGenres] = useState([]);
@@ -36,6 +37,8 @@ const Genre = () => {
       console.error("Failed to fetch movies", error);
     }
   };
+
+  console.log(data)
 
   return (
     <div>

@@ -1,76 +1,109 @@
+/* Theme Variables */
+:root {
+  --primary-yellow: #ffd700;
+  --light-bg: white;
+  --dark-bg: black;
+  --light-text: black;
+  --dark-text: white;
+}
+
+/* Container Styles */
 .search-container {
-    padding: 20px;
-    background: linear-gradient(135deg, #141e30, #243b55);
-    color: #ffffff;
-    min-height: 100vh;
-  
-    .search-form {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-  
-      input {
-        width: 300px;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s, color 0.3s;
+
+  &.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    
+    // Input field in dark mode
+    input {
+      background-color: var(--dark-bg); // Black background for dark mode input
+      color: var(--light-text); // White text for dark mode input
+
+      &::placeholder {
+        color: var(--light-text); // Optional: Change placeholder color
+      }
+    }
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    input {
+      padding: 10px;
+      border: 1px solid var(--primary-yellow);
+      border-radius: 5px;
+      width: 300px;
+      margin-right: 10px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-yellow);
+      }
+    }
+
+    button {
+      background-color: var(--primary-yellow);
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: dark(var(--primary-yellow), 10%);
+      }
+    }
+  }
+
+  .loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primary-yellow);
+    margin: 20px 0;
+  }
+
+  .results-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+
+    .result-card {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .result-info {
         padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        color: #000;
-        background-color: #fff;
-      }
-  
-      button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        padding-left: 10px;
-        padding-right: 10px;
-        transition: color 0.3s;
-  
-        &:hover {
-          color: #f39c12;
+
+        h3 {
+          font-size: 1rem;
+          color: var(--primary-yellow);
+          margin: 5px 0;
         }
-      }
-    }
-  
-    // Loading animation styles
-    .loading {
-      text-align: center;
-      font-size: 18px;
-      color: #f39c12; // You can change the color of the loading text
-      margin: 20px 0;
-    }
-  
-    .results-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-  
-      .result-card {
-        margin: 10px;
-        width: 150px;
-        text-align: center;
-        position: relative;
-  
-        img {
-          width: 100%;
-          border-radius: 8px;
-        }
-  
-        .result-info {
-          margin-top: 5px;
-  
-          h3 {
-            font-size: 16px;
-            font-weight: bold;
-          }
-  
-          p {
-            font-size: 14px;
-            color: #ccc;
-          }
+
+        p {
+          font-size: 0.9rem;
+          color: gray;
         }
       }
     }
   }
-  
+}

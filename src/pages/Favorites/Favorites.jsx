@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FavoritesView from "./FavoritesView";
 import axios from "axios";
+import { data } from "autoprefixer";
 
 const Favorites = () => {
   const [favoriteList, setFavoriteList] = useState([]);
@@ -24,6 +25,8 @@ const Favorites = () => {
   useEffect(() => {
     ambilFavorit();
   }, []);
+
+   console.log(data)
 
   return <FavoritesView data={favoriteList} />;
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import RatedView from "./RatedView";
+import { data } from "autoprefixer";
 
 const Rated = () => {
   const [listRating, setListRate] = useState([]);
@@ -20,6 +21,8 @@ const Rated = () => {
       console.log("Error fetching rating:", error.message);
     }
   };
+
+  console.log(data)
 
   useEffect(() => {
     ambilRating();

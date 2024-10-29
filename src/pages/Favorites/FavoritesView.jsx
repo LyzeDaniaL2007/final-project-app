@@ -8,7 +8,7 @@ const FavoritesView = ({ data }) => {
   }
 
   return (
-    <div className="favorites-container">
+    <div className="favorites-container p-6 bg-white dark:bg-black dark:text-white">
       <h1>Your Favorite Movies</h1>
       <div className="favorites-grid">
         {data.map((movie) => (

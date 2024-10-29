@@ -1,45 +1,102 @@
-.navbar-container {
-  background: linear-gradient(135deg, #141e30, #243b55);
-  padding: 1rem;
+/* Define CSS variables for light and dark themes */
+:root {
+  --background-color: white;
+  --text-color: black;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.dark {
+  --background-color: black;
+  --text-color: white;
+}
 
-  .btn {
-    color: white; // Set button text color
-    font-size: 1.5rem;
-  }
+/* Navbar Styles */
+.navbar-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 
-  .menu {
+  .navbar {
     display: flex;
-    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-    li {
-      list-style: none;
+    a.btn {
+      color: #ffd700; /* Yellow color for Fun Movie text */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: #ffd700; /* Keep yellow hover effect */
+      }
+    }
+
+    .menu {
+      display: flex;
+      gap: 15px;
 
       a {
-        color: white; // Set link color
         text-decoration: none;
+        font-size: 1rem;
+        color: var(--text-color);
         transition: color 0.3s;
 
         &:hover {
-          color: #f39c12; // Change color on hover
+          color: #ffd700; /* Yellow hover effect */
         }
       }
     }
-  }
 
-  .search-icon {
-    cursor: pointer;
-    color: white; // Set icon color
-    margin-left: auto; // Push the icon to the right
-    transition: color 0.3s;
+    .search-icon {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
 
-    &:hover {
-      color: #f39c12; // Change color on hover
+      svg {
+        fill: var(--text-color);
+        transition: fill 0.3s;
+      }
+
+      &:hover svg {
+        fill: #ffd700; /* Yellow search icon on hover */
+      }
+    }
+
+    .theme-controller {
+      margin-left: 10px;
+      cursor: pointer;
+      width: 40px;
+      height: 20px;
+      appearance: none;
+      background-color: #ccc;
+      border-radius: 20px;
+      position: relative;
+      transition: background-color 0.3s;
+
+      &:checked {
+        background-color: #ffd700; /* Yellow when active */
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 16px;
+        height: 16px;
+        background-color: var(--background-color);
+        border-radius: 50%;
+        transition: transform 0.3s;
+      }
+
+      &:checked::before {
+        transform: translateX(20px); /* Move the toggle circle */
+      }
     }
   }
 }

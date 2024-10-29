@@ -27,9 +27,10 @@ const SearchComponent = () => {
   };
 
   return (
-    <div className="search-container">
+    <div className="search-container p-6 bg-white dark:bg-black dark:text-white">
       <form className="search-form" onSubmit={handleSearch}>
         <input
+        className="text-black"
           type="text"
           placeholder="Search for movies or TV shows..."
           value={query}

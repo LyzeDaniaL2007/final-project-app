@@ -8,10 +8,18 @@ import Rated from "./pages/Rated/Rated";
 import Favorites from "./pages/Favorites/Favorites";
 import Footer from "./components/Footer";
 import Genre from "./pages/genres/genre";
+import ThemeContext from "./context/ThemeContext";
+import { Provider } from "react-redux";
+import { useState } from "react";
+import store from "./store/store";
 
 function App() {
+
+  const theme = useState("Light");
   return (
     <BrowserRouter>
+     <ThemeContext.Provider value={theme}>
+      <Provider store={store}>
       <Navbar />
       <Routes>
         <Route path="/Home" element={<Home />} />
@@ -21,6 +29,8 @@ function App() {
         <Route path="/rated" element={<Rated />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
+      </Provider>
+      </ThemeContext.Provider>
       <Footer />
     </BrowserRouter>
   );

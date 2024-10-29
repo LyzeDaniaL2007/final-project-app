@@ -1,67 +1,85 @@
+/* Theme Variables */
+:root {
+  --primary-yellow: #ffd700;
+  --light-bg: white;
+  --dark-bg: black;
+  --light-text: black;
+  --dark-text: white;
+}
+
+/* Container Styles */
 .rated-container {
-    padding: 20px;
-    background: linear-gradient(135deg, #141e30, #243b55);
-    min-height: 100vh; 
-    color: white;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s, color 0.3s;
+
+  &.dark {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
   }
-  
+
   .rated-title {
-    text-align: center;
-    margin-bottom: 20px;
     font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--primary-yellow);
   }
-  
+
   .rated-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 15px;
+
+    .rated-item {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .rated-link {
+        text-decoration: none;
+        color: inherit;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        .rated-info {
+          padding: 10px;
+
+          .rated-movie-title {
+            font-size: 1.1rem;
+            margin: 5px 0;
+            color: var(--primary-yellow);
+          }
+
+          .rated-rating,
+          .rated-release {
+            font-size: 0.9rem;
+            color: gray;
+          }
+
+          .rated-rating {
+            strong {
+              color: var(--primary-yellow);
+            }
+          }
+        }
+      }
+    }
   }
-  
-  .rated-item {
-    background-color: rgba(46, 46, 46, 0.8); 
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-  }
-  
-  .rated-item:hover {
-    transform: scale(1.05);
-  }
-  
-  .rated-link {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .rated-poster {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .rated-info {
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .rated-movie-title {
-    font-size: 1.2rem;
-    margin: 10px 0;
-  }
-  
-  .rated-rating {
-    margin: 5px 0;
-  }
-  
-  .rated-release {
-    color: #b0b0b0;
-    font-size: 0.9rem;
-  }
-  
+
   .rated-empty {
     text-align: center;
-    font-size: 1.5rem;
-    margin-top: 50px;
-    color: #b0b0b0;
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: gray;
   }
-  
+}

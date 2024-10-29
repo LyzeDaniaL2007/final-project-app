@@ -8,7 +8,7 @@ const RatedView = ({ data }) => {
   }
 
   return (
-    <div className="rated-container">
+    <div className="rated-container p-6 bg-white dark:bg-black dark:text-white">
       <h2 className="rated-title">Your Rated Movies</h2>
       <div className="rated-list">
         {data.map((movie) => (
